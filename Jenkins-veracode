@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage('Security scan'){
 			steps {
-				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': 'App-DevOps-Azure-POC', 'buildVersion': '${BUILD_TAG}'}", securityToolId : "d4a769fcc35ba510d3e77fef0501319e"
+				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': 'App-DevOps-Azure-POC', 'buildVersion': '${BUILD_TAG}'}",securityToolId : "d4a769fcc35ba510d3e77fef0501319e"
 			}
 		}	
 	      }
