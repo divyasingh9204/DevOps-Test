@@ -15,7 +15,7 @@ pipeline {
 			steps {
 				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': '', 'applicationName': 'VeraDemo10', 'buildVersion': '21 Mar 2023 Static'}"
 				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': '', 'buildVersion': '21 Mar 2023 Static'}"
-				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'VeraDemo10','securityToolId' : '98082530c39ba510d3e77fef050131e1'}"
+				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'VeraDemo10','buildVersion': '21 Mar 2023 Static'}"
 			}
 		}	
 	      }
