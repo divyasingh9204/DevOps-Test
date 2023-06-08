@@ -14,7 +14,8 @@ pipeline {
 		stage('Security scan'){
 			steps {
 				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': '', 'applicationName': 'VeraDemo10', 'buildVersion': '21 Mar 2023 Static'}"
-				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': '', 'buildVersion': '21 Mar 2023 Static'}"
+				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': '', 'buildVersion': '21 Mar 2023 Static'}"
+				snDevOpsSecurityResult()
 			}
 		}	
 	      }
