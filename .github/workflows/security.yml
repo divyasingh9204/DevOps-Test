@@ -77,7 +77,7 @@ jobs:
 #           #deleteincompletescan: 1
 #           scantimeout: 20
 
-     - name: ServiceNow DevOps Security Results
+      - name: ServiceNow DevOps Security Results
         uses: maheshganji/custom-action-get@sonar
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
@@ -88,12 +88,12 @@ jobs:
           job-name: 'Veracode Static Analysis'
           security-result-attributes: '{ "scanner": "Veracode", "applicationName": "App-DevOps-Azure-POC", "securityToolId": "a670e317c383e110f920550f0501310b" }'
          
-   - name: ServiceNow DevOps Change Automation
+      - name: ServiceNow DevOps Change Automation
         # You may pin to the exact commit or the version.
         # uses: ServiceNow/servicenow-devops-change@0f57435999463cc1dea44bde4f5eca9879474b85
         # uses: ServiceNow/servicenow-devops-change@v1.38.0            
-          uses: ServiceNow/servicenow-devops-change@dev
-          with:
+        uses: ServiceNow/servicenow-devops-change@dev
+        with:
               # ServiceNow Instance URL
               instance-url: ${{ secrets.SN_INSTANCE_URL }}
               # Devops Integration User Name
@@ -125,6 +125,8 @@ jobs:
                       "test_plan": "Testing if the software was successfully deployed"
                   }
               }'
+   - name: Run deployment scripts
+          run: echo Completed Deployment
   deploy:
     #if: github.event.pull_request.merged == true
     name: Deploy
