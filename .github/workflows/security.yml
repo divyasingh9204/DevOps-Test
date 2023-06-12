@@ -89,6 +89,7 @@ jobs:
           security-result-attributes: '{ "scanner": "Veracode", "applicationName": "App-DevOps-Azure-POC", "securityToolId": "5659b802c39be910d3e77fef0501314e" }'
          
   changeApproval:
+    needs: scan
     name: ServiceNow Change Approval
     runs-on: ubuntu-latest
     steps:     
