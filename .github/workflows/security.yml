@@ -88,9 +88,12 @@ jobs:
           job-name: 'Veracode Static Analysis'
           security-result-attributes: '{ "scanner": "Veracode", "applicationName": "App-DevOps-Azure-POC", "securityToolId": "5659b802c39be910d3e77fef0501314e" }'
          
-       
+  changeApproval:
+    name: ServiceNow Change Approval
+    runs-on: ubuntu-latest
+    steps:     
       - name: ServiceNow Change Approval
-        uses: ServiceNow/servicenow-devops-change@dev
+        uses: ServiceNow/servicenow-devops-change@main
         id: create
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
