@@ -126,11 +126,4 @@ jobs:
                   }
               }'
     
-   deploy:
-    #if: github.event.pull_request.merged == true
-    name: Deploy
-    needs: scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run deployment scripts
-        run: echo Completed Deployment
+   
