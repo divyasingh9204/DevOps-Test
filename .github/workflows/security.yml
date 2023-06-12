@@ -90,7 +90,7 @@ jobs:
          
        
       - name: ServiceNow Change Approval
-        uses: ServiceNow/servicenow-devops-change@main
+        uses: ServiceNow/servicenow-devops-change@dev
         id: create
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
