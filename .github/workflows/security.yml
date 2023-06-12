@@ -86,7 +86,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Veracode Static Analysis'
-          security-result-attributes: '{ "scanner": "Veracode", "applicationName": "App-DevOps-Azure-POC", "securityToolId": "a670e317c383e110f920550f0501310b" }'
+          security-result-attributes: '{ "scanner": "Veracode", "applicationName": "App-DevOps-Azure-POC", "securityToolId": "53b7853ec31bad10d3e77fef0501312b" }'
          
       - name: ServiceNow DevOps Change Automation
         # You may pin to the exact commit or the version.
