@@ -86,7 +86,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Veracode Static Analysis'
-          security-result-attributes: '{ "scanner": "Veracode", "applicationName": "", "securityToolId": "5659b802c39be910d3e77fef0501314e" }'
+          security-result-attributes: '{ "scanner": "Veracode", "applicationName": "10kflaws-72", "securityToolId": "5659b802c39be910d3e77fef0501314e" }'
           
 #       -  name: ServiceNow Change Approval
 #          uses: ServiceNow/servicenow-devops-change@main
