@@ -1,0 +1,53 @@
+name: Get Security Summaries
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:           
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+  # This workflow contains a job to build and submit pipeline scan, you will need to customize the build process accordingly and make sure the artifact you build is used as the file input to the pipeline scan file parameter
+  scan:
+    name: Veracode Static Analysis
+    needs: build
+    # The type of runner that the job will run on
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it and copies all sources into ZIP file for submitting for analysis. Replace this section with your applications build steps
+      - uses: actions/checkout@v3
+        with:
+          repository: ''
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: ServiceNow DevOps Security Results
+        uses: maheshganji/custom-action-get@sonar
+        with:
+          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+          devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+          instance-url: ${{ secrets.SN_INSTANCE_URL }}
+          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+          context-github: ${{ toJSON(github) }}
+          job-name: 'Veracode Static Analysis'
+          security-result-attributes: '{ "scanner": "Veracode", "applicationName": "10kflaws-72", "buildVersion": "2023-06-07.01"}'
+         
+  changeApproval:
+    needs: scan
+    name: ServiceNow Change Approval
+    runs-on: ubuntu-latest
+    steps:     
+      - name: ServiceNow Change Approval
+        run: echo Dummy Change Approval Step
+    
+   
