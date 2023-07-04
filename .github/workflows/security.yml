@@ -108,7 +108,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:     
       - name: ServiceNow Change Approval
-        uses: ServiceNow/servicenow-devops-change@scratch_STRY55387839
+        uses: ServiceNow/servicenow-devops-change@dev
         id: create
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
