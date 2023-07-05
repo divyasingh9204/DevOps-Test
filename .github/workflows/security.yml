@@ -87,8 +87,8 @@ jobs:
           context-github: ${{ toJSON(github) }}
           job-name: 'Veracode Static Analysis'
           security-result-attributes: '{ "scanner": "Veracode", "applicationName": "10kflaws-72", "buildVersion": "2023-06-07.01"}'
-      - name: Sleep  600 secs
-        run: sleep 600s
+      - name: Sleep  0 secs
+        run: sleep 0s
         shell: bash         
 #       -  name: ServiceNow Change Approval
 #          uses: ServiceNow/servicenow-devops-change@main
