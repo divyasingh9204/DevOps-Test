@@ -15,7 +15,7 @@ pipeline {
                 def server = Artifactory.server 'jfrog1'
                 def downSpec= """{
                    "files": [{
-                     "pattern": "devops-jfrog-local-repo/devops-e2e-1.40.0-SNAPSHOT.jar",
+                     "pattern": "devops-jfrog-local-repo/DevOps-Test-1.39.0-SNAPSHOT.jar",
                      "target":"/var/jenkins_home/workspace/Divya-pipeline-jfrog-download/loadtests/${BUILD_NUMBER}/"
                    }]
                 }"""
