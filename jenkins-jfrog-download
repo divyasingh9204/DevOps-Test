@@ -12,7 +12,7 @@ pipeline {
            post{
             always{
               script{
-                def server = Artifactory.server 'ramadevops'
+                def server = Artifactory.server 'jfrog1'
                 def downSpec= """{
                    "files": [{
                      "pattern": "devops-jfrog-local-repo/devops-e2e-1.40.0-SNAPSHOT.jar",
