@@ -56,8 +56,8 @@ pipeline {
             def server = Artifactory.server 'jfrog1'
                     def uploadSpec = """{
                     "files": [{
-                     "pattern": "target/devops-e2e-1.40.0-SNAPSHOT.jar",
-                     "target": "devops-jfrog-local-repo/"
+                     "pattern": "target/DevOps-Test-1.39.0-SNAPSHOT.jar",
+                     "target": "devops-jfrog-local-repo/$(BUILD_NUMBER)/"
                     }]
                     }"""
 
