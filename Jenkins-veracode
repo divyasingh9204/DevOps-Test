@@ -78,12 +78,12 @@ pipeline {
 				 
 			}
 		}
-		stage('Security scan2'){
-			steps {
-				echo "security2"
-				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : 'b866c7429398311065edfca86cba104c'}"
-			}
-		}
+		//stage('Security scan2'){
+		//	steps {
+		//		echo "security2"
+		//		snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : 'b866c7429398311065edfca86cba104c'}"
+		//	}
+		//}
 		stage('Security scan'){
 			steps {
 				echo "security"
