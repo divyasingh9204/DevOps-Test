@@ -81,7 +81,7 @@ pipeline {
 		stage('Security scan2'){
 			steps {
 				echo "security2"
-				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github','buildVersion': 'jenkins-divya-veracode-pipeline-6', 'securityToolId' : 'b866c7429398311065edfca86cba104c'}"
+				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : 'b866c7429398311065edfca86cba104c'}"
 			}
 		}
 		stage('Security scan'){
