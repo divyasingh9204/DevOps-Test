@@ -37,7 +37,7 @@ pipeline {
       	steps {
 		
 	      script {
-	      	changeRequestId = snDevOpsGetChangeNumber changeDetails: '{"pipeline_name":"Pipeline-Divya-1","build_number":"${BUILD_NUMBER}","stage_name":"Deploy"}'
+	      	changeRequestId = snDevOpsGetChangeNumber changeDetails: '{"pipeline_name":"Pipeline-Divya-1","stage_name":"Deploy"}'
 		echo "Inside Script Block => Test the change....with double quotes ${changeRequestId}"
 	      }
               echo "Deploying the change....${changeRequestId}"
