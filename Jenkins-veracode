@@ -86,7 +86,7 @@ pipeline {
 		}
 		//stage('Security scan'){
 		//	steps {
-				echo "security"
+				//echo "security"
 				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': '', 'applicationName': 'VeraDemo10', 'buildVersion': '21 Mar 2023 Static'}"
 				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': '', 'buildVersion': '21 Mar 2023 Static'}"
 				 //snDevOpsChange changeRequestDetails: '{ "attributes": { "chg_model": "007c4001c343101035ae3f52c1d3aeb2"}}'
