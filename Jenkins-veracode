@@ -1,6 +1,6 @@
 def artifactname = "devops-snow-build-app.jar"
 def repoName = "JenkinsDevOpsProject"
-def pipelineName = "SunilPipelines/Sunil-Scripted-Pipeline-Sonar"
+def pipelineName = "divya-veracode-pipeline"
 def semanticVersion = "${env.BUILD_NUMBER}.0.0"
 def packageName = "devops-snow-build-pkg_${env.BUILD_NUMBER}"
 def version = "${env.BUILD_NUMBER}.0"
@@ -8,6 +8,7 @@ def pkgName = "devops-snow-build-pkg_${env.BUILD_NUMBER}"
 def changeRequestId = "testId"
 def artifactVersion = "2.${env.BUILD_NUMBER}"
 def artifactSemVersion = "${artifactVersion}.0"
+def stageName = "STAGE"
 
 pipeline {
 	agent any
@@ -126,14 +127,16 @@ pipeline {
                     changeRequestId = snDevOpsGetChangeNumber()
                     echo "Change Request Id without any attributes... ${changeRequestId}"
 
-                  //  changeRequestId = snDevOpsGetChangeNumber(
-                    //    changeDetails: """
-                      //  {
-                      //      "build_number":"${BUILD_NUMBER}",
-                      //      "pipeline_name":"${pipelineName}",
-                      //      "stage_name":"${stageName}"
-                      //  }""")
-                   // echo "Change Request Id with attributes... ${changeRequestId}"
+
+//snDevOpsGetChangeNumber changeDetails: '{ "pipeline_name": "${pipelineName}", "build_number": "${BUILD_NUMBER}", "stage_name": "${stageName}", "branch_name": "main"}'
+                   changeRequestId = snDevOpsGetChangeNumber(
+                        changeDetails: """
+                        {
+                           "build_number":"${BUILD_NUMBER}",
+                            "pipeline_name":"${pipelineName}",
+                            "stage_name":"${stageName}"
+                        }""")
+                    echo "Change Request Id with attributes... ${changeRequestId}"
 
                     echo "Updating the change details ..."
                     snDevOpsUpdateChangeInfo(
