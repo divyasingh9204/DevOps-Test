@@ -1,6 +1,6 @@
 def artifactname = "sp-boot-app.jar"
 def repoName = "sp-boot-app-repo"
-def pipelineName = "devops_vk_pipeline"
+def pipelineName = "Pipeline-Divya-1"
 def semanticVersion = "${env.BUILD_NUMBER}.0.0"
 def packageName = "spboot-package_${env.BUILD_NUMBER}"
 def version = "${env.BUILD_NUMBER}.0"
@@ -37,7 +37,7 @@ pipeline {
       	steps {
 		
 	      script {
-	      	changeRequestId = snDevOpsGetChangeNumber changeDetails: '{"pipeline_name":"surya-multibranch","build_number":"2","stage_name":"Deploy"}'
+	      	changeRequestId = snDevOpsGetChangeNumber changeDetails: '{"pipeline_name":"Pipeline-Divya-1","build_number":"${env.BUILD_NUMBER}","stage_name":"Deploy"}'
 		echo "Inside Script Block => Test the change....with double quotes ${changeRequestId}"
 	      }
               echo "Deploying the change....${changeRequestId}"
