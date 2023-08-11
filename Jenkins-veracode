@@ -59,7 +59,7 @@ pipeline {
                      "pipelineName": "Average App Pipeline",
                      "taskExecutionNumber":"${env.BUILD_NUMBER}",
                      "stageName":"Create Artifact for prod",
-                     "branchName": "master"
+                     "branchName": "main"
                    }
                  ]
                 }""")
