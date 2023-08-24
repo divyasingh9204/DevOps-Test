@@ -265,7 +265,7 @@ jobs:
                   change-request: '{
                       "setCloseCode": "true",
                       "attributes": {
-                          "chg_model": {"name”:"normal"},
+                          "chg_model":"e55d0bfec343101035ae3f52c1d3ae49",
                           "assignment_group": "a715cd759f2002002920bde8132e7018",
                           "short_description": "Automated Software Deployment",
                           "description": "Automated Software Deployment.",
