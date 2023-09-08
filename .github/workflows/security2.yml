@@ -86,7 +86,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Veracode Static Analysis'
-          security-result-attributes: '{ "scanner": "Veracode", "applicationName": "10kflaws-72"}'
+          security-result-attributes: '{ "scanner": "Veracode", "applicationName": "10kflaws-44"}'
       # - name: Sleep  0 secs
       #   run: sleep 0s
       #   shell: bash         
