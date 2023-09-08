@@ -68,7 +68,7 @@ jobs:
       - name: Veracode Upload And Scan
         uses: veracode/veracode-uploadandscan-action@0.2.6
         with:
-          appname: 'App-DevOps-Azure-POC'
+          appname: '10kflaws-72'
           createprofile: false
           filepath: 'target/DevOps-Test-1.39.0-SNAPSHOT.jar'
 #           version: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
