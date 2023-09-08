@@ -65,28 +65,28 @@ jobs:
 #           # Path to SARIF file relative to the root of the repository
 #           sarif_file: veracode-results.sarif
 
-      - name: Veracode Upload And Scan
-        uses: veracode/veracode-uploadandscan-action@0.2.6
-        with:
-          appname: '10kflaws-72'
-          createprofile: false
-          filepath: 'target/DevOps-Test-1.39.0-SNAPSHOT.jar'
-#           version: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
-          vid: '${{ secrets.VERACODE_API_ID }}'
-          vkey: '${{ secrets.VERACODE_API_KEY }}'
-          #deleteincompletescan: 1
-          scantimeout: 20
+#       - name: Veracode Upload And Scan
+#         uses: veracode/veracode-uploadandscan-action@0.2.6
+#         with:
+#           appname: '10kflaws-72'
+#           createprofile: false
+#           filepath: 'target/DevOps-Test-1.39.0-SNAPSHOT.jar'
+# #           version: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+#           vid: '${{ secrets.VERACODE_API_ID }}'
+#           vkey: '${{ secrets.VERACODE_API_KEY }}'
+#           #deleteincompletescan: 1
+#           scantimeout: 20
 
-      # - name: ServiceNow DevOps Security Results
-      #   uses: ServiceNow/servicenow-devops-security-result@dev
-      #   with:
-      #     devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-      #     devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-      #     instance-url: ${{ secrets.SN_INSTANCE_URL }}
-      #     tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-      #     context-github: ${{ toJSON(github) }}
-      #     job-name: 'Veracode Static Analysis'
-      #     security-result-attributes: '{ "scanner": "Veracode", "applicationName": "10kflaws-72", "buildVersion": "2023-06-07.01"}'
+      - name: ServiceNow DevOps Security Results
+        uses: ServiceNow/servicenow-devops-security-result@dev
+        with:
+          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+          devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+          instance-url: ${{ secrets.SN_INSTANCE_URL }}
+          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+          context-github: ${{ toJSON(github) }}
+          job-name: 'Veracode Static Analysis'
+          security-result-attributes: '{ "scanner": "Veracode", "applicationName": "10kflaws-72"}'
       # - name: Sleep  0 secs
       #   run: sleep 0s
       #   shell: bash         
