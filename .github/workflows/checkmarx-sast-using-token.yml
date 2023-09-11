@@ -42,7 +42,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:     
         - name: ServiceNow DevOps Security Results
-          uses: ServiceNow/servicenow-devops-security-result@vdev
+          uses: ServiceNow/servicenow-devops-security-result@dev
           with:
             devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
             instance-url: ${{ secrets.SN_INSTANCE_URL }}
