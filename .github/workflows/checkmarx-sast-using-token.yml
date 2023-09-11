@@ -1,4 +1,4 @@
-name: Get Security Summary Results for checkmarx-one-using-token
+name: Get Security Summary Results for checkmarx-sast-using-token
 
 on: workflow_dispatch
 
