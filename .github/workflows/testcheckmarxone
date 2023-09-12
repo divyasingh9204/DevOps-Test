@@ -13,29 +13,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-          
-      # - name: ServiceNow DevOps Security Results
-      #   uses: ServiceNow/servicenow-devops-security-result@dev
-      #   with:
-      #     devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-      #     devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-      #     instance-url: ${{ secrets.SN_INSTANCE_URL }}
-      #     tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-      #     context-github: ${{ toJSON(github) }}
-      #     job-name: 'Veracode Static Analysis'
-      #     security-result-attributes: '{ "scanner": "Veracode", "applicationName": "10kflaws-44"}'
-
-      # - name: ServiceNow DevOps Security Results
-      #   uses: ServiceNow/servicenow-devops-security-result@dev
-      #   with:
-      #     devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-      #     devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-      #     instance-url: ${{ secrets.SN_INSTANCE_URL }}
-      #     tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-      #     context-github: ${{ toJSON(github) }}
-      #     job-name: 'Veracode Static Analysis'
-      #     security-result-attributes: '{"scanner": "CheckmarxOne", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId": "2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
-   deploy:
+     deploy:
        name: Deploy
        needs: build
        runs-on: ubuntu-latest
@@ -92,5 +70,5 @@ jobs:
                           "test_plan": "Testing if the software was successfully deployed",
                           "chg_model": {"name": "normal"}
                       }
-    
+    }'
    
