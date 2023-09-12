@@ -274,7 +274,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Deploy'
-          security-result-attributes:  '{"scanner": "CheckmarxOne", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
+          security-result-attributes:  '{"scanner": "Checkmarx One", "projectName": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
     # deploy:
   #     name: Deploy
   #     needs: build
