@@ -249,7 +249,7 @@ jobs:
     #         security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
   
   changeApproval:
-    needs: build
+    needs: deploy
     name: ServiceNow-Change-Approval
     runs-on: ubuntu-latest
     steps:     
