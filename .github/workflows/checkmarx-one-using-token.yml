@@ -92,34 +92,34 @@ jobs:
   #         context-github: ${{ toJSON(github) }}
   #         job-name: 'Deploy'
   #         security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectName": "DemoProject", "projectId": "75acb348c0544ab3807de17e92a923ab567", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    steps:     
-      - name: ServiceNow DevOps Security Results
-        uses: ServiceNow/servicenow-devops-security-result@dev
-        with:
-          devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
-          instance-url: ${{ secrets.SN_INSTANCE_URL }}
-          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-          context-github: ${{ toJSON(github) }}
-          job-name: 'Deploy'
-          security-result-attributes:  '{"scanner": "Checkmarx One", "projectName": "DemoProject", "projectId": "DemoProject", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
-    # deploy:
-  #     name: Deploy
-  #     needs: build
-  #     runs-on: ubuntu-latest
-  #     steps:     
-  #       - name: ServiceNow DevOps Security Results
-  #         uses: ServiceNow/servicenow-devops-security-result@dev
-  #         with:
-  #           devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
-  #           instance-url: ${{ secrets.SN_INSTANCE_URL }}
-  #           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-  #           context-github: ${{ toJSON(github) }}
-  #           job-name: 'Deploy'
-  #           security-result-attributes:  '{"scanner": "Checkmarx One", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
+  # deploy:
+  #   name: Deploy
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:     
+  #     - name: ServiceNow DevOps Security Results
+  #       uses: ServiceNow/servicenow-devops-security-result@dev
+  #       with:
+  #         devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
+  #         instance-url: ${{ secrets.SN_INSTANCE_URL }}
+  #         tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+  #         context-github: ${{ toJSON(github) }}
+  #         job-name: 'Deploy'
+  #         security-result-attributes:  '{"scanner": "Checkmarx One", "projectName": "DemoProject", "projectId": "DemoProject", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
+    deploy:
+      name: Deploy
+      needs: build
+      runs-on: ubuntu-latest
+      steps:     
+        - name: ServiceNow DevOps Security Results
+          uses: ServiceNow/servicenow-devops-security-result@dev
+          with:
+            devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
+            instance-url: ${{ secrets.SN_INSTANCE_URL }}
+            tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+            context-github: ${{ toJSON(github) }}
+            job-name: 'Deploy'
+            security-result-attributes:  '{"scanner": "Checkmarx One", "projectName": "DemoProject123", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
     # deploy:
   #     name: Deploy
   #     needs: build
