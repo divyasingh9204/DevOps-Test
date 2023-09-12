@@ -51,6 +51,20 @@ jobs:
   #           job-name: 'Deploy'
   #           security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
 
+  # deploy:
+  #   name: Deploy
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:     
+  #     - name: ServiceNow DevOps Security Results
+  #       uses: ServiceNow/servicenow-devops-security-result@dev
+  #       with:
+  #         devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
+  #         instance-url: ${{ secrets.SN_INSTANCE_URL }}
+  #         tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+  #         context-github: ${{ toJSON(github) }}
+  #         job-name: 'Deploy'
+  #         security-result-attributes:  '{"scanner": "CheckmarxSAST", "projectId": "1094","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
   deploy:
     name: Deploy
     needs: build
@@ -64,21 +78,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Deploy'
-          security-result-attributes:  '{"scanner": "CheckmarxSAST", "projectId": "1094","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
-    # deploy:
-    #   name: Deploy
-    #   needs: build
-    #   runs-on: ubuntu-latest
-    #   steps:     
-    #     - name: ServiceNow DevOps Security Results
-    #       uses: ServiceNow/servicenow-devops-security-result@dev
-    #       with:
-    #         devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
-    #         instance-url: ${{ secrets.SN_INSTANCE_URL }}
-    #         tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-    #         context-github: ${{ toJSON(github) }}
-    #         job-name: 'Deploy'
-    #         security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
+          security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "766e-0a99b87c-df150c67d-a8673cb-b3560","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
     # deploy:
     #   name: Deploy
     #   needs: build
