@@ -109,7 +109,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Deploy'
-          security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
+          security-result-attributes:  '{ "projectId": "","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
      # deploy:
   #     name: Deploy
   #     needs: build
