@@ -169,7 +169,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Deploy'
-          security-result-attributes:  '{"scanner": "Veracode", "projectName": "DemoProject123", "projectId": "75acb348c0544ab3807de17e92a923ab567", "scanId":"2bb9e0163669488c8341ffa4831221f10", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
+          security-result-attributes:  '{"scanner": "Veracode", "projectName": "DemoProject123", "projectId": "75acb348c0544ab3807de17e92a923ab567", "scanId":"2bb9e0163669488c8341ffa4831221f10", "securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
     # deploy:
   #     name: Deploy
   #     needs: build
