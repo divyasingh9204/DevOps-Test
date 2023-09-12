@@ -273,7 +273,7 @@ jobs:
             tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
             context-github: ${{ toJSON(github) }}
             job-name: 'Deploy'
-            security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "fc27f59847d135504c2ce977746d433c"}'    
+            security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectName": "75acb348-c054-4ab3-807d-e17e92a923ab", "projectId": "DemoProject", "scanId":"75acb348-c054-4ab3-807d-e17e92a923ab", "securityToolId": "fc27f59847d135504c2ce977746d433c"}'    
   
   # changeApproval:
   #   needs: build
