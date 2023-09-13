@@ -27,7 +27,7 @@ jobs:
             tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
             context-github: ${{ toJSON(github) }}
             job-name: 'Deploy'
-            security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
+            security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "150f5d70c3d1f110a653f92f050131d8"}'
 
   changeApproval:
       #if: github.event.pull_request.merged == true
