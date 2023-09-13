@@ -14,20 +14,6 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-  # deploy:
-  #     name: Deploy
-  #     needs: build
-  #     runs-on: ubuntu-latest
-  #     steps:     
-  #       - name: ServiceNow DevOps Security Results
-  #         uses: ServiceNow/servicenow-devops-security-result@dev
-  #         with:
-  #           devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
-  #           instance-url: ${{ secrets.SN_INSTANCE_URL }}
-  #           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-  #           context-github: ${{ toJSON(github) }}
-  #           job-name: 'Deploy'
-  #           security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "150f5d70c3d1f110a653f92f050131d8"}'
   deploy:
       name: Deploy
       needs: build
@@ -36,13 +22,27 @@ jobs:
         - name: ServiceNow DevOps Security Results
           uses: ServiceNow/servicenow-devops-security-result@dev
           with:
-            devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-            devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+            devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
             instance-url: ${{ secrets.SN_INSTANCE_URL }}
             tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
             context-github: ${{ toJSON(github) }}
             job-name: 'Deploy'
             security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "150f5d70c3d1f110a653f92f050131d8"}'
+  # deploy:
+  #     name: Deploy
+  #     needs: build
+  #     runs-on: ubuntu-latest
+  #     steps:     
+  #       - name: ServiceNow DevOps Security Results
+  #         uses: ServiceNow/servicenow-devops-security-result@dev
+  #         with:
+  #           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+  #           devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+  #           instance-url: ${{ secrets.SN_INSTANCE_URL }}
+  #           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+  #           context-github: ${{ toJSON(github) }}
+  #           job-name: 'Deploy'
+  #           security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "150f5d70c3d1f110a653f92f050131d8"}'
   changeApproval:
       #if: github.event.pull_request.merged == true
       name: changeApproval
