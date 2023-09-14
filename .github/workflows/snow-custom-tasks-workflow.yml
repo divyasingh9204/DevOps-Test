@@ -233,11 +233,25 @@ jobs:
                   package-name: 'app-devops-change-velocity.war'
                   # Display Name of Job
                   job-name: 'Integration Tests'
-
+    deploy2:
+        name: Deploy2
+        needs: integrationTest
+        runs-on: ubuntu-latest
+        steps:     
+          - name: ServiceNow DevOps Security Results
+            uses: ServiceNow/servicenow-devops-security-result@v3.0.0
+            with:
+              devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+              devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+              instance-url: ${{ secrets.SN_INSTANCE_URL }}
+              tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+              context-github: ${{ toJSON(github) }}
+              job-name: 'Deploy2'
+              security-result-attributes:  '{"scanner": "Veracode", "applicationName": "10kflaws-44", "buildVersion": "2023-06-07.01"}'
     deploy:
         #if: github.event.pull_request.merged == true
         name: Deploy
-        needs: integrationTest
+        needs: deploy2
         runs-on: ubuntu-latest
         steps:     
             - name: ServiceNow DevOps Change Automation
