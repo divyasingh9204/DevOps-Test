@@ -28,21 +28,21 @@ jobs:
   #           context-github: ${{ toJSON(github) }}
   #           job-name: 'Deploy'
   #           security-result-attributes:  '{"scanner": "Checkmarx One", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "abc85e13c381f150a653f92f050131de"}'
-  # deploy:
-  #     name: Deploy
-  #     needs: build
-  #     runs-on: ubuntu-latest
-  #     steps:     
-  #       - name: ServiceNow DevOps Security Results
-  #         uses: ServiceNow/servicenow-devops-security-result@dev
-  #         with:
-  #           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-  #           devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-  #           instance-url: ${{ secrets.SN_INSTANCE_URL }}
-  #           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-  #           context-github: ${{ toJSON(github) }}
-  #           job-name: 'Deploy'
-  #           security-result-attributes:  '{"scanner": "Checkmarx One", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "179c55ff8719b510096d33383cbb350c"}'
+  deploy:
+      name: Deploy
+      needs: build
+      runs-on: ubuntu-latest
+      steps:     
+        - name: ServiceNow DevOps Security Results
+          uses: ServiceNow/servicenow-devops-security-result@dev
+          with:
+            devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+            devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+            instance-url: ${{ secrets.SN_INSTANCE_URL }}
+            tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+            context-github: ${{ toJSON(github) }}
+            job-name: 'Deploy'
+            security-result-attributes:  '{"scanner": "Checkmarx One", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId":"2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "179c55ff8719b510096d33383cbb350c"}'
   # deploy:
   #     name: Deploy
   #     needs: build
