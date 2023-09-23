@@ -13,20 +13,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-  # deploy:
-  #     name: Deploy
-  #     needs: build
-  #     runs-on: ubuntu-latest
-  #     steps:     
-  #       - name: ServiceNow DevOps Security Results
-  #         uses: ServiceNow/servicenow-devops-security-result@dev
-  #         with:
-  #           devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
-  #           instance-url: ${{ secrets.SN_INSTANCE_URL }}
-  #           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-  #           context-github: ${{ toJSON(github) }}
-  #           job-name: 'Deploy'
-  #           security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1076","securityToolId": "9d256df38799b5106e97a8673cbb3507"}'
   deploy:
       name: Deploy
       needs: build
@@ -40,7 +26,21 @@ jobs:
             tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
             context-github: ${{ toJSON(github) }}
             job-name: 'Deploy'
-            security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "150f5d70c3d1f110a653f92f050131d8"}'
+            security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1076","securityToolId": "9d256df38799b5106e97a8673cbb3507"}'
+  # deploy:
+  #     name: Deploy
+  #     needs: build
+  #     runs-on: ubuntu-latest
+  #     steps:     
+  #       - name: ServiceNow DevOps Security Results
+  #         uses: ServiceNow/servicenow-devops-security-result@dev
+  #         with:
+  #           devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
+  #           instance-url: ${{ secrets.SN_INSTANCE_URL }}
+  #           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+  #           context-github: ${{ toJSON(github) }}
+  #           job-name: 'Deploy'
+  #           security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "150f5d70c3d1f110a653f92f050131d8"}'
   # deploy:
   #     name: Deploy
   #     needs: build
