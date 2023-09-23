@@ -119,7 +119,7 @@ jobs:
           job-name: 'Deploy'
           security-result-attributes:  '{"scanner": "Veracode", "applicationName": "10kflaws-44", "buildVersion": "2023-06-07.01"}'        
   changeApproval:
-    needs: scan
+    needs: deploy
     name: ServiceNow-Change-Approval
     runs-on: ubuntu-latest
     steps:     
