@@ -168,51 +168,51 @@ jobs:
   # //           # buildVersion: Veracode Scan name / build version and is optional. This attribute is applicable only for Veracode.
   # //           # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional.
 
-  ServiceNowSecurityScanResults:
-    # jobs that must complete successfully before this job will run
-    needs: build
-    # type of machine to run the job on
-    runs-on: ubuntu-latest
-    name: ServiceNow Security Scan Results
-    steps:
-      - name: ServiceNow DevOps Security Results
-        uses: ServiceNow/servicenow-devops-security-result@dev
-        with:
-            # Devops Integration User Name
-            devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-            # Devops Integration User Password
-            devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-            # ServiceNow Instance URL
-            instance-url: ${{ secrets.SN_INSTANCE_URL }}
-            # Orchestration Tool Id
-            tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-            # GitHub Context
-            context-github: ${{ toJSON(github) }}
-            # Display Name of the Job
-            job-name: 'ServiceNow Security Scan Results'
-            security-result-attributes: '{"scanner": "Checkmarx One", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId": "2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "8bfd09b8c3253110b31ff42c05013181"}'
-            # scanner: Scanning tool and is required e.g. Checkmarx One.
-            # projectName/projectId: Name/Id of your Checkmarx One project and is required. This attribute is applicable only for Checkmarx One.
-            # scanId: Checkmarx One scan id and is optional. This attribute is applicable only for Checkmarx One.
-            # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional.
-  changeApproval:
-    needs: ServiceNowSecurityScanResults
-    name: changeApproval
-    runs-on: ubuntu-latest
-    steps:     
-      - name: ServiceNow DevOps Change Automation
-        uses: ServiceNow/servicenow-devops-change@dev
-        id: create
-        with:
-          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-          devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-          instance-url: ${{ secrets.SN_INSTANCE_URL }}
-          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-          context-github: ${{ toJSON(github) }}
-          job-name: 'changeApproval'
-          change-request: '{"setCloseCode":"true","attributes":{"short_description":"Automated Software Deployment","assignment_group":"a715cd759f2002002920bde8132e7018","assigned_to":{"name":"Change Manager"},"chg_model":"007c4001c343101035ae3f52c1d3aeb2","description":"Automated Software Deployment.","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
-          interval: '100'
-          timeout: '3600'
-          changeCreationTimeOut: '3600'
+  # ServiceNowSecurityScanResults:
+  #   # jobs that must complete successfully before this job will run
+  #   needs: build
+  #   # type of machine to run the job on
+  #   runs-on: ubuntu-latest
+  #   name: ServiceNow Security Scan Results
+  #   steps:
+  #     - name: ServiceNow DevOps Security Results
+  #       uses: ServiceNow/servicenow-devops-security-result@dev
+  #       with:
+  #           # Devops Integration User Name
+  #           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+  #           # Devops Integration User Password
+  #           devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+  #           # ServiceNow Instance URL
+  #           instance-url: ${{ secrets.SN_INSTANCE_URL }}
+  #           # Orchestration Tool Id
+  #           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+  #           # GitHub Context
+  #           context-github: ${{ toJSON(github) }}
+  #           # Display Name of the Job
+  #           job-name: 'ServiceNow Security Scan Results'
+  #           security-result-attributes: '{"scanner": "Checkmarx One", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId": "2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "8bfd09b8c3253110b31ff42c05013181"}'
+  #           # scanner: Scanning tool and is required e.g. Checkmarx One.
+  #           # projectName/projectId: Name/Id of your Checkmarx One project and is required. This attribute is applicable only for Checkmarx One.
+  #           # scanId: Checkmarx One scan id and is optional. This attribute is applicable only for Checkmarx One.
+  #           # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional.
+  # changeApproval:
+  #   needs: ServiceNowSecurityScanResults
+  #   name: changeApproval
+  #   runs-on: ubuntu-latest
+  #   steps:     
+  #     - name: ServiceNow DevOps Change Automation
+  #       uses: ServiceNow/servicenow-devops-change@dev
+  #       id: create
+  #       with:
+  #         devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+  #         devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+  #         instance-url: ${{ secrets.SN_INSTANCE_URL }}
+  #         tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+  #         context-github: ${{ toJSON(github) }}
+  #         job-name: 'changeApproval'
+  #         change-request: '{"setCloseCode":"true","attributes":{"short_description":"Automated Software Deployment","assignment_group":"a715cd759f2002002920bde8132e7018","assigned_to":{"name":"Change Manager"},"chg_model":"007c4001c343101035ae3f52c1d3aeb2","description":"Automated Software Deployment.","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
+  #         interval: '100'
+  #         timeout: '3600'
+  #         changeCreationTimeOut: '3600'
     
    
