@@ -28,12 +28,12 @@ jobs:
   #           context-github: ${{ toJSON(github) }}
   #           job-name: 'Deploy'
   #           security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
-  ServiceNowSecurityScanResults:
+  ServiceNowSecurityScanResults1:
     # type of machine to run the job on
     runs-on: ubuntu-latest
-    name: ServiceNow Security Scan Results
+    name: ServiceNow Security Scan Results1
     steps:
-      - name: ServiceNow DevOps Security Results
+      - name: ServiceNow DevOps Security Results1
         uses: ServiceNow/servicenow-devops-security-result@dev
         with:
             # Devops Integration User Name
@@ -47,7 +47,7 @@ jobs:
             # GitHub Context
             context-github: ${{ toJSON(github) }}
             # Display Name of the Job
-            job-name: 'ServiceNow Security Scan Results'
+            job-name: 'ServiceNow Security Scan Results1'
             security-result-attributes: '{"scanner": "Checkmarx One", "projectName": "akhandpratapsingh/ProjectWithTestCasesRename", "projectId": "cf1864b4-3c5c-4fd2-92ef-1a702811e76c", "scanId": "d077dd5c-f7fa-4d27-8872-635882aaae2d", "securityToolId": "8bfd09b8c3253110b31ff42c05013181"}'
             # scanner: Scanning tool and is required e.g. Checkmarx One.
             # projectName/projectId: Name/Id of your Checkmarx One project and is required. This attribute is applicable only for Checkmarx One.
@@ -56,9 +56,9 @@ jobs:
   ServiceNowSecurityScanResults2:
     # type of machine to run the job on
     runs-on: ubuntu-latest
-    name: ServiceNow Security Scan Results
+    name: ServiceNow Security Scan Results2
     steps:
-      - name: ServiceNow DevOps Security Results
+      - name: ServiceNow DevOps Security Results2
         uses: ServiceNow/servicenow-devops-security-result@dev
         with:
             # DevOps Integration Token of GitHub tool created in ServiceNow instance for token based authentication.
@@ -70,7 +70,7 @@ jobs:
             # GitHub Context
             context-github: ${{ toJSON(github) }}
             # Display Name of the Job
-            job-name: 'ServiceNow Security Scan Results'
+            job-name: 'ServiceNow Security Scan Results2'
             security-result-attributes: '{"scanner": "Checkmarx One", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId": "2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "8bfd09b8c3253110b31ff42c05013181"}'
             # scanner: Scanning tool and is required e.g. Checkmarx One.
             # projectName/projectId: Name/Id of your Checkmarx One project and is required. This attribute is applicable only for Checkmarx One.
@@ -79,9 +79,9 @@ jobs:
   ServiceNowSecurityScanResults3:
     # type of machine to run the job on
     runs-on: ubuntu-latest
-    name: ServiceNow Security Scan Results
+    name: ServiceNow Security Scan Results3
     steps:
-      - name: ServiceNow DevOps Security Results
+      - name: ServiceNow DevOps Security Results3
         uses: ServiceNow/servicenow-devops-security-result@dev
         with:
             # Devops Integration User Name
@@ -95,7 +95,7 @@ jobs:
             # GitHub Context
             context-github: ${{ toJSON(github) }}
             # Display Name of the Job
-            job-name: 'ServiceNow Security Scan Results'
+            job-name: 'ServiceNow Security Scan Results3'
             security-result-attributes: '{"scanner": "Checkmarx SAST", "projectId": "1076", "securityToolId": "76921130c3653110b31ff42c050131d5"}'
             # scanner: Scanning tool and is required e.g. Checkmarx SAST.
             # projectId: Id of your Checkmarx SAST project and is required. This attribute is applicable only for Checkmarx SAST.
@@ -103,9 +103,9 @@ jobs:
   ServiceNowSecurityScanResults4:
       # type of machine to run the job on
       runs-on: ubuntu-latest
-      name: ServiceNow Security Scan Results
+      name: ServiceNow Security Scan Results4
       steps:
-        - name: ServiceNow DevOps Security Results
+        - name: ServiceNow DevOps Security Results4
           uses: ServiceNow/servicenow-devops-security-result@dev
           with:
               # DevOps Integration Token of GitHub tool created in ServiceNow instance for token based authentication.
@@ -117,7 +117,7 @@ jobs:
               # GitHub Context
               context-github: ${{ toJSON(github) }}
               # Display Name of the Job
-              job-name: 'ServiceNow Security Scan Results'
+              job-name: 'ServiceNow Security Scan Results4'
               security-result-attributes: '{"scanner": "Checkmarx SAST", "projectId": "3285", "securityToolId": "76921130c3653110b31ff42c050131d5"}'
               # scanner: Scanning tool and is required e.g. Checkmarx SAST.
               # projectId: Id of your Checkmarx SAST project and is required. This attribute is applicable only for Checkmarx SAST.
@@ -125,9 +125,9 @@ jobs:
   ServiceNowSecurityScanResults5:
     # type of machine to run the job on
     runs-on: ubuntu-latest
-    name: ServiceNow Security Scan Results
+    name: ServiceNow Security Scan Results5
     steps:
-      - name: ServiceNow DevOps Security Results
+      - name: ServiceNow DevOps Security Results5
         uses: ServiceNow/servicenow-devops-security-result@dev
         with:
             # DevOps Integration Token of GitHub tool created in ServiceNow instance for token based authentication.
@@ -139,7 +139,7 @@ jobs:
             # GitHub Context
             context-github: ${{ toJSON(github) }}
             # Display Name of the Job
-            job-name: 'ServiceNow Security Scan Results'
+            job-name: 'ServiceNow Security Scan Results5'
             security-result-attributes: '{"scanner": "Veracode", "applicationName": "10kflaws-44", "buildVersion": "2023-06-07.01", "securityToolId": "9aad95fcc3653110b31ff42c05013194"}'
             # scanner: Scanning tool and is required e.g. Veracode.
             # applicationName: Name of your Veracode application and is required. This attribute is applicable only for Veracode.
@@ -148,7 +148,7 @@ jobs:
   ServiceNowSecurityScanResults:
     # type of machine to run the job on
     runs-on: ubuntu-latest
-    name: ServiceNow Security Scan Results1
+    name: ServiceNow Security Scan Results
     steps:
       - name: ServiceNow DevOps Security Results
         uses: ServiceNow/servicenow-devops-security-result@dev
