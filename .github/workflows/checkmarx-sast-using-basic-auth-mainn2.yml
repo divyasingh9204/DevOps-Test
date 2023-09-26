@@ -1,4 +1,4 @@
-name: Get Security Summary Results for checkmarx-one-using-basic-auth-main
+name: Get Security Summary Results for checkmarx-one-using-basic-auth-mainn2
 
 on: workflow_dispatch
 
