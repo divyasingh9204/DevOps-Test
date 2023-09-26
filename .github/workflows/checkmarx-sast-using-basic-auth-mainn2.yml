@@ -79,7 +79,7 @@ jobs:
   changeApproval:
       #if: github.event.pull_request.merged == true
       name: changeApproval
-      needs: deploy
+      needs: ServiceNowSecurityScanResults
       runs-on: ubuntu-latest
       steps:     
           - name: ServiceNow DevOps Change Automation
