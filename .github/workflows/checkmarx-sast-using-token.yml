@@ -272,7 +272,7 @@ jobs:
             # projectId: Id of your Checkmarx SAST project and is required. This attribute is applicable only for Checkmarx SAST.
             # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional.
   changeApproval:
-    needs: deploy
+    needs: ServiceNowSecurityScanResults
     name: ServiceNow-Change-Approval
     runs-on: ubuntu-latest
     steps:     
