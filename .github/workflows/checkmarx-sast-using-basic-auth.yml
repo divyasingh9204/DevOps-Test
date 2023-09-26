@@ -35,21 +35,21 @@ jobs:
       #     context-github: ${{ toJSON(github) }}
       #     job-name: 'Veracode Static Analysis'
       #     security-result-attributes: '{"scanner": "CheckmarxOne", "projectName": "DemoProject", "projectId": "75acb348-c054-4ab3-807d-e17e92a923ab", "scanId": "2bb9e016-3669-488c-8341-ffa4831221f3", "securityToolId": "dc8d695b87cdf150c67da8673cbb3502"}'
-  deploy:
-      name: Deploy
-      needs: build
-      runs-on: ubuntu-latest
-      steps:     
-        - name: ServiceNow DevOps Security Results
-          uses: ServiceNow/servicenow-devops-security-result@dev
-          with:
-            devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-            devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-            instance-url: ${{ secrets.SN_INSTANCE_URL }}
-            tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-            context-github: ${{ toJSON(github) }}
-            job-name: 'Deploy'
-            security-result-attributes:   '{"scanner": "Checkmarx SAST", "projectId": "1076","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'        
+  # deploy:
+  #     name: Deploy
+  #     needs: build
+  #     runs-on: ubuntu-latest
+  #     steps:     
+  #       - name: ServiceNow DevOps Security Results
+  #         uses: ServiceNow/servicenow-devops-security-result@dev
+  #         with:
+  #           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+  #           devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+  #           instance-url: ${{ secrets.SN_INSTANCE_URL }}
+  #           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+  #           context-github: ${{ toJSON(github) }}
+  #           job-name: 'Deploy'
+  #           security-result-attributes:   '{"scanner": "Checkmarx SAST", "projectId": "1076","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'        
   # deploy:
   #     name: Deploy
   #     needs: build
@@ -276,24 +276,24 @@ jobs:
   #           job-name: 'Deploy'
   #           security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1076","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
     
-  changeApproval:
-    needs: build
-    name: ServiceNow-Change-Approval
-    runs-on: ubuntu-latest
-    steps:     
-      - name: ServiceNow DevOps Change Automation
-        uses: ServiceNow/servicenow-devops-change@v2.0.0
-        id: create
-        with:
-          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-          devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-          instance-url: ${{ secrets.SN_INSTANCE_URL }}
-          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-          context-github: ${{ toJSON(github) }}
-          job-name: 'ServiceNow-Change-Approval'
-          change-request: '{"setCloseCode":"true","attributes":{"short_description":"Automated Software Deployment","assignment_group":"a715cd759f2002002920bde8132e7018","assigned_to":{"name":"Change Manager"},"chg_model":"007c4001c343101035ae3f52c1d3aeb2","description":"Automated Software Deployment.","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
-          interval: '100'
-          timeout: '3600'
-          changeCreationTimeOut: '3600'
+  # changeApproval:
+  #   needs: build
+  #   name: ServiceNow-Change-Approval
+  #   runs-on: ubuntu-latest
+  #   steps:     
+  #     - name: ServiceNow DevOps Change Automation
+  #       uses: ServiceNow/servicenow-devops-change@v2.0.0
+  #       id: create
+  #       with:
+  #         devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+  #         devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+  #         instance-url: ${{ secrets.SN_INSTANCE_URL }}
+  #         tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+  #         context-github: ${{ toJSON(github) }}
+  #         job-name: 'ServiceNow-Change-Approval'
+  #         change-request: '{"setCloseCode":"true","attributes":{"short_description":"Automated Software Deployment","assignment_group":"a715cd759f2002002920bde8132e7018","assigned_to":{"name":"Change Manager"},"chg_model":"007c4001c343101035ae3f52c1d3aeb2","description":"Automated Software Deployment.","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
+  #         interval: '100'
+  #         timeout: '3600'
+  #         changeCreationTimeOut: '3600'
     
    
