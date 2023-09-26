@@ -29,6 +29,7 @@ jobs:
   #           job-name: 'Deploy'
   #           security-result-attributes:  '{"scanner": "Checkmarx SAST", "projectId": "1094","securityToolId": "766ea99b87cdf150c67da8673cbb3560"}'
   ServiceNowSecurityScanResults1:
+    needs: build
     # type of machine to run the job on
     runs-on: ubuntu-latest
     name: ServiceNow Security Scan Results1
@@ -54,6 +55,7 @@ jobs:
             # scanId: Checkmarx One scan id and is optional. This attribute is applicable only for Checkmarx One.
             # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional.  
   ServiceNowSecurityScanResults2:
+    needs: ServiceNowSecurityScanResults1
     # type of machine to run the job on
     runs-on: ubuntu-latest
     name: ServiceNow Security Scan Results2
@@ -77,6 +79,7 @@ jobs:
             # scanId: Checkmarx One scan id and is optional. This attribute is applicable only for Checkmarx One.
             # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional.  
   ServiceNowSecurityScanResults3:
+    needs: ServiceNowSecurityScanResults2
     # type of machine to run the job on
     runs-on: ubuntu-latest
     name: ServiceNow Security Scan Results3
@@ -101,6 +104,7 @@ jobs:
             # projectId: Id of your Checkmarx SAST project and is required. This attribute is applicable only for Checkmarx SAST.
             # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional.
   ServiceNowSecurityScanResults4:
+      needs: ServiceNowSecurityScanResults3
       # type of machine to run the job on
       runs-on: ubuntu-latest
       name: ServiceNow Security Scan Results4
@@ -123,6 +127,7 @@ jobs:
               # projectId: Id of your Checkmarx SAST project and is required. This attribute is applicable only for Checkmarx SAST.
               # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional. 
   ServiceNowSecurityScanResults5:
+    needs: ServiceNowSecurityScanResults4
     # type of machine to run the job on
     runs-on: ubuntu-latest
     name: ServiceNow Security Scan Results5
@@ -146,6 +151,7 @@ jobs:
             # buildVersion: Veracode Scan name / build version and is optional. This attribute is applicable only for Veracode.
             # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional.
   ServiceNowSecurityScanResults:
+    needs: ServiceNowSecurityScanResults5
     # type of machine to run the job on
     runs-on: ubuntu-latest
     name: ServiceNow Security Scan Results
