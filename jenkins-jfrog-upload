@@ -53,11 +53,11 @@ pipeline {
         post{
             always{
             script{
-            def server = Artifactory.server 'jfrog1'
+            def server = Artifactory.server 'riya05'
                     def uploadSpec = """{
                     "files": [{
                      "pattern": "target/DevOps-Test-1.39.0-SNAPSHOT.jar",
-                     "target": "devops-jfrog-local-repo/${BUILD_NUMBER}/"
+                     "target": "test-repo/${BUILD_NUMBER}/"
                     }]
                     }"""
 
