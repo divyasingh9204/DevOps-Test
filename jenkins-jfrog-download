@@ -7,7 +7,7 @@ pipeline {
        stage('Download from JFrog') {
            steps {
               echo "Download the JFrog artifacts"
-              echo "/var/jenkins_home/workspace/Divya-freestyle-jfrog-download/loadtests/${env.BUILD_NUMBER}/"
+              echo "/var/jenkins_home/workspace/divya-pipeline-2/loadtests/${env.BUILD_NUMBER}/"
            }
            post{
             always{
@@ -15,7 +15,7 @@ pipeline {
                 def server = Artifactory.server 'jfrog1'
                 def downSpec= """{
                    "files": [{
-                     "pattern": "devops-jfrog-local-repo/DevOps-Test-1.39.0-SNAPSHOT.jar",
+                     "pattern": "test-repo/DevOps-Test-1.39.0-SNAPSHOT.jar",
                      "target":"/var/jenkins_home/workspace/Divya-pipeline-jfrog-download/loadtests/${BUILD_NUMBER}/"
                    }]
                 }"""
