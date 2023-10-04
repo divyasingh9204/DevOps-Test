@@ -15,7 +15,7 @@ pipeline {
                 def server = Artifactory.server 'riya05'
                 def downSpec= """{
                    "files": [{
-                     "pattern": "test-repo/DevOps-Test-1.39.0-SNAPSHOT.jar",
+                     "pattern": "test-repo/8/DevOps-Test-1.39.0-SNAPSHOT.jar",
                      "target":"/var/jenkins_home/workspace/divya-pipeline-2/loadtests/${BUILD_NUMBER}/"
                    }]
                 }"""
