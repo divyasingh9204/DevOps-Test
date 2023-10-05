@@ -27,13 +27,13 @@ pipeline {
 				//veracode applicationName: "10kflaws-44", criticality: 'VeryHigh', debug: true, timeout: 20, fileNamePattern: '', pHost: '', pPassword: '', pUser: '', replacementPattern: '', sandboxName: '', scanExcludesPattern: '', scanIncludesPattern: '', scanName: "${BUILD_TAG}", uploadExcludesPattern: '', uploadIncludesPattern: 'target/DevOps-Test-1.39.0-SNAPSHOT.jar', vid: "5a57339d6779ffb76782e03df3f6e9d1", vkey: "f31d151c427a3286469a6291b14dee15e7f553e066b32c801f09014dc3282de4f51a81cd0bde7c7dd9d95de9a71a32c8a2c582158f278320ae765fe9fd232e0a”, waitForScan: true		
 				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': '10kflaws-72','buildVersion': '2023-06-07.01','securityToolId' : 'b866c7429398311065edfca86cba104c'}"
 				//veracode applicationName: "PetStoreAPI-Github", criticality: 'VeryHigh', debug: true, timeout: 20, fileNamePattern: '', pHost: '', pPassword: '', pUser: '', replacementPattern: '', sandboxName: '', scanExcludesPattern: '', scanIncludesPattern: '', scanName: "${BUILD_TAG}", uploadExcludesPattern: '', uploadIncludesPattern: 'target/DevOps-Test-1.39.0-SNAPSHOT.jar', vid: "5a57339d6779ffb76782e03df3f6e9d1", vkey: "f31d151c427a3286469a6291b14dee15e7f553e066b32c801f09014dc3282de4f51a81cd0bde7c7dd9d95de9a71a32c8a2c582158f278320ae765fe9fd232e0a", waitForScan : 'true'
-				veracode applicationName: "VeraDemo10", criticality: 'VeryHigh', debug: true, timeout: 20, fileNamePattern: '', pHost: '', pPassword: '', pUser: '', replacementPattern: '', sandboxName: '', scanExcludesPattern: '', scanIncludesPattern: '', scanName: "${BUILD_TAG}", uploadExcludesPattern: '', uploadIncludesPattern: 'target/DevOps-Test-1.39.0-SNAPSHOT.jar', vid: "5a57339d6779ffb76782e03df3f6e9d1", vkey: "f31d151c427a3286469a6291b14dee15e7f553e066b32c801f09014dc3282de4f51a81cd0bde7c7dd9d95de9a71a32c8a2c582158f278320ae765fe9fd232e0a", waitForScan : 'true' 
+				//veracode applicationName: "VeraDemo10", criticality: 'VeryHigh', debug: true, timeout: 20, fileNamePattern: '', pHost: '', pPassword: '', pUser: '', replacementPattern: '', sandboxName: '', scanExcludesPattern: '', scanIncludesPattern: '', scanName: "${BUILD_TAG}", uploadExcludesPattern: '', uploadIncludesPattern: 'target/DevOps-Test-1.39.0-SNAPSHOT.jar', vid: "5a57339d6779ffb76782e03df3f6e9d1", vkey: "f31d151c427a3286469a6291b14dee15e7f553e066b32c801f09014dc3282de4f51a81cd0bde7c7dd9d95de9a71a32c8a2c582158f278320ae765fe9fd232e0a", waitForScan : 'true' 
 			}
 		}
 		stage('Security scan2'){
 			steps {
 				echo "security2"
-				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github','securityToolId' : 'b866c7429398311065edfca86cba104c'}"
+				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': '10kflaws-44',  'buildVersion': '2023-06-07.01','securityToolId' : 'd7c27106c3293510c79ff32a05013165'}"
 			}
 		}
 		//stage('Security scan'){
@@ -43,7 +43,7 @@ pipeline {
 				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': '', 'buildVersion': '21 Mar 2023 Static'}"
 				 //snDevOpsChange changeRequestDetails: '{ "attributes": { "chg_model": "007c4001c343101035ae3f52c1d3aeb2"}}'
 				 // snDevOpsChange()
-				 //snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'VeraDemo10','buildVersion': '21 Mar 2023 Static','securityToolId' : '5659b802c39be910d3e77fef0501314e'}"
+				 //snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': '10kflaws-44',  'buildVersion': '2023-06-07.01','securityToolId' : 'd7c27106c3293510c79ff32a05013165'}"
 				 
 				
 		//	}
