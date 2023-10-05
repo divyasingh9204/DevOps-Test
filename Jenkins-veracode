@@ -82,7 +82,7 @@ pipeline {
 		stage('Security scan2'){
 			steps {
 				echo "security2"
-				snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github','securityToolId' : 'b866c7429398311065edfca86cba104c'}"
+				//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github','securityToolId' : 'b866c7429398311065edfca86cba104c'}"
 			}
 		}
 		//stage('Security scan'){
@@ -121,36 +121,6 @@ pipeline {
                 
                 //snDevOpsChange(ignoreErrors:false)
                 
-                script {
-                    echo 'Inside script step...'
-                    
-                    changeRequestId = snDevOpsGetChangeNumber()
-                    echo "Change Request Id without any attributes... ${changeRequestId}"
-
-
-snDevOpsGetChangeNumber changeDetails: '{ "pipeline_name": "${pipelineName}", "build_number": "${BUILD_NUMBER}", "stage_name": "${stageName}", "branch_name": "main"}'
-                   changeRequestId = snDevOpsGetChangeNumber(
-                        changeDetails: """
-                        {
-                           "build_number":"${BUILD_NUMBER}",
-                            "pipeline_name":"${pipelineName}",
-                            "stage_name":"${stageName}"
-                        }""")
-                    echo "Change Request Id with attributes... ${changeRequestId}"
-
-                    echo "Updating the change details ..."
-                    snDevOpsUpdateChangeInfo(
-                        changeRequestDetails: """
-                        {
-                            "state":"3",
-                            "comments": "Change request comments UPDATED!!!",
-                            "work_notes": "Change request work_notes UPDATED!!!"
-                        }""",
-                        changeRequestNumber: """${changeRequestId}""")
-                    echo "Verify the state, comments and work_notes are updated"
-                }
-             }
-}
 	      }
 	}
 
