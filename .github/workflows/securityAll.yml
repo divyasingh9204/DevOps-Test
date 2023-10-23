@@ -265,6 +265,7 @@ jobs:
   #           # securityToolId: Security tool onboarded in ServiceNow (sys_id of the onboarded security tool) and is optional.
   changeApproval:
     # needs: ServiceNowSecurityScanResults
+    needs: build
     name: changeApproval
     runs-on: ubuntu-latest
     steps:     
