@@ -3,17 +3,6 @@
 
 name: GitHub Actions workflow with SNOW custom tasks latest
 
-# on:
-#   push:
-#     branches: [ main ]
-#    pull_request:
-#      branches: [ master ]
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     types: [opened, synchronize, reopened]
-
 on: workflow_dispatch
 #  pull_request_target:
 #    types:
@@ -261,14 +250,14 @@ jobs:
                   package-name: 'app-devops-change-velocity.war'
                   # Display Name of Job
                   job-name: 'Integration Tests'
-
-    deploy:
-        #if: github.event.pull_request.merged == true
-        name: Deploy
-        needs: integrationTest
-        runs-on: ubuntu-latest
-        steps:     
+     
  changeApproval:
+    # needs: ServiceNowSecurityScanResults
+    needs: build
+    name: changeApproval
+    runs-on: ubuntu-latest
+    steps:     
+        changeApproval:
     # needs: ServiceNowSecurityScanResults
     needs: build
     name: changeApproval
@@ -284,31 +273,10 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'changeApproval'
-                  # Github Context
-                  context-github: ${{ toJSON(github) }}
-                  # The max. time in seconds to wait until the action should fail.
-                  timeout: 3600 # optional, default is 3600
-                  # The time in seconds to wait between trying the API.
-                  interval: 100 # optional, default is 100
-                  # The customized inputs to create change with the requested details.
-                  changeCreationTimeOut: 3600
-                  abortOnChangeCreationFailure: 'false'
-                  abortOnChangeStepTimeout: 'false'
-                  change-request: '{
-                      "setCloseCode": "true",
-                      "attributes": {
-                          "short_description": "Automated Software Deployment",
-                          "description": "Automated Software Deployment.",
-                          "assignment_group": "a715cd759f2002002920bde8132e7018",
-                          "implementation_plan": "Software update is tested and results can be found in Test Summaries Tab.",
-                          "backout_plan": "When software fails in production, the previous software release will be re-deployed.",
-                          "test_plan": "Testing if the software was successfully deployed",
-                          "chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"
-                      }
-                  }'
-
-            - name: Run deployment scripts
-              run: echo Completed Deployment
+          change-request: '{"setCloseCode":"true","attributes":{"short_description":"Automated Software Deployment","assignment_group":"a715cd759f2002002920bde8132e7018","assigned_to":{"name":"Change Manager"},"chg_model":"007c4001c343101035ae3f52c1d3aeb2","description":"Automated Software Deployment.","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
+          interval: '100'
+          timeout: '3600'
+          changeCreationTimeOut: '3600'
 
     postdeploy:
         #if: github.event.pull_request.merged == true
